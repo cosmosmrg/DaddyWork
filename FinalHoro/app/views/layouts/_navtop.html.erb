@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default navbar-static-top">
+<div class= "container">
+		<ul class="nav navbar-nav" >
+				<a class="navbar-brand" href=<%= root_path %>> Final Horo </a>
+		</ul>
+
+		<ul class="nav navbar-nav navbar-right">
+			<% if logged_in? %>
+          <li><%= link_to "โปรไฟล์", current_user %></li>
+					<li><%= link_to "ออกจากระบบ", logout_path, method: "delete" %></li>
+			<% else %>
+		      <li><%= link_to "เข้าสู่ระบบ", login_path %></li>
+					<li><%= link_to "ลงทะเบียน", signup_path %></li>
+		  <% end %>
+		</ul>
+</div>
+</nav>

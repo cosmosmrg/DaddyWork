@@ -1,4 +1,63 @@
-<h1>
-  <%= @user.username %>
-  
-</h1>
+<% provide(:title, "Profile") %>
+<div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">เลขที่สมาชิก  : <%= @user.memid %></h3>
+
+            </div>
+            <div class="panel-body">
+              <span class="pull-right">
+                  <%= link_to "แก้ไขข้อมูล", edit_user_path(@user)%>
+                  <br>
+              </span>
+              <div class="row">
+
+
+                <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>ชื่อ-นามสกุล  : </td>
+                        <td><%= @user.full_name%></td>
+                      </tr>
+                      <tr>
+                        <td>วันเกิด</td>
+                        <td><%= @user.birthdate%> <%= @user.birthday%></td>
+                      </tr>
+                      <tr>
+                        <td>เวลาเกิด</td>
+                        <td><%= @user.timeofbirth%></td>
+                      </tr>
+                      <tr>
+                        <td>ปีนักษัตร</td>
+                        <td><%= @user.moonyear %></td>
+                      </tr>
+                      <tr>
+                        <tr>
+                          <td>เบอร์ติดต่อ</td>
+                          <td><%= @user.phone %></td>
+                        </tr>
+                        <tr>
+                        <td>Lineid</td>
+                        <td><%= @user.lineid %></td>
+                        </tr>
+                        <tr>
+                          <td>อีเมล์</td>
+                          <td><%= @user.email %></td>
+                        </tr>
+                        <td>ชื่อเดิม</td>
+                        <td><%= @user.altername1 %><br><br><%= @user.altername2 %><br><br><%= @user.altername3 %>
+                        </td>
+
+                      </tr>
+
+                    </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
