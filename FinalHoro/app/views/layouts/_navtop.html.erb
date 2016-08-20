@@ -6,7 +6,11 @@
 
 		<ul class="nav navbar-nav navbar-right">
 			<% if logged_in? %>
-          <li><%= link_to "โปรไฟล์", current_user %></li>
+					<% if current_user.admin? %>
+						<li><%= link_to "สมาชิกทั้งหมด", users_path %></li>
+					<% else %>
+						  <li><%= link_to "โปรไฟล์", current_user %></li>
+					<% end %>
 					<li><%= link_to "ออกจากระบบ", logout_path, method: "delete" %></li>
 			<% else %>
 		      <li><%= link_to "เข้าสู่ระบบ", login_path %></li>
