@@ -7,6 +7,11 @@
   <% end %>
 <% end %>
 <h1>สมาชิกทั้งหมด (<%= @total %>)</h1>
+<p>
+  Download:
+  <%= link_to "CSV", users_path(format: "csv") %>
+</p>
+
 <%= will_paginate %>
 <table class="table table-striped">
   <thead>

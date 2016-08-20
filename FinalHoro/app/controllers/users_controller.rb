@@ -7,10 +7,17 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find(params[:id])
+
   end
   def index
     @users = User.paginate(page: params[:page])
+    respond_to do |format|
+    format.html
+    format.csv { send_data @users.as_csv.encode("UTF-8"), filename: "users-#{Date.today}.csv" }
+
+    end
   end
+
   def create
     @user = User.new(user_params)
     if @user.save

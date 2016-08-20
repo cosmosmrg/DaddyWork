@@ -1,7 +1,11 @@
 <nav class="navbar navbar-default navbar-static-top">
 <div class= "container">
 		<ul class="nav navbar-nav" >
-				<a class="navbar-brand" href=<%= root_path %>> Final Horo </a>
+				<% if logged_in? %>
+					<a class="navbar-brand" href=<%= current_user %>> Final Horo </a>
+				<% else %>
+					<a class="navbar-brand" href=<%= root_path %>> Final Horo </a>
+				<% end %>
 		</ul>
 
 		<ul class="nav navbar-nav navbar-right">
