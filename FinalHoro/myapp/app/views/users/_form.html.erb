@@ -1,0 +1,51 @@
+<%= form_for(@user) do |f| %>
+<%= render 'shared/error_messages' %>
+<%= f.label :ชื่อ %>
+<%= f.text_field :firstname , class: 'form-control'  %>
+
+<%= f.label :นามสกุล %>
+<%= f.text_field :lastname , class: 'form-control'  %>
+
+<%= f.label :ชื่อเดิม %>
+<%= f.text_field :altername1 , class: 'form-control'  %>
+<%= f.text_field :altername2 , class: 'form-control'  %>
+<%= f.text_field :altername3 , class: 'form-control'  %>
+
+<%= f.label :เวลาเกิด %>
+<%= f.select :timeofbirthhour, '01'...'25' %>
+<%= f.select :timeofbirthmin, '00'...'60'  %>
+
+<%= f.label :วันเกิด %>
+<%= f.select :date , '01'...'32'  %>
+<%= f.select :month, '01'...'13'  %>
+<%= f.select :year , ((0...71).map{|i| [2559-i]})%>
+
+<%= f.label :เกิดวันใดในสัปดาห์ %>
+<%= f.select :birthdate , ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'] %>
+
+<%= f.label :อายุ%>
+<%= f.select :age , ((0...71).map{|i| [70-i]}) %>
+
+<%= f.label :ปีนักษัตร %>
+<%= f.select :moonyear , ['ชวด','ฉลู','ขาล','เถาะ','มะโรง','มะเส็ง','มะเมีย','มะแม','วอก','ระกา','จอ','กุน']  %>
+
+<%= f.label :เบอร์มือถือ %>
+<%= f.text_field :phone , class: 'form-control'  %>
+
+<%= f.label :lineid %>
+<%= f.text_field :lineid , class: 'form-control'  %>
+
+<%= f.label :อีเมล์ %>
+<%= f.email_field :email, class: 'form-control'  %>
+
+<%= f.label :username %>
+<%= f.text_field :username , class: 'form-control'  %>
+
+<%= f.label :password %>
+<%= f.password_field :password, class: 'form-control'  %>
+
+<%= f.label :password_confirmation, "Confirm password" %>
+<%= f.password_field :password_confirmation, class: 'form-control'  %>
+
+  <%= f.submit "Save changes", class: "btn btn-primary" %>
+<% end %>
