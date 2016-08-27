@@ -10,7 +10,12 @@ class UsersController < ApplicationController
 
   end
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.all
+    if params[:search]
+      @users = User.search(params[:search],params[:search_from]).order("created_at DESC")
+    else
+      @users = User.all.order("created_at DESC")
+    end
     respond_to do |format|
     format.html
     format.csv { send_data @users.as_csv.encode("UTF-8"), filename: "users-#{Date.today}.csv" }

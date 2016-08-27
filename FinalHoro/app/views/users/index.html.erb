@@ -12,29 +12,39 @@
   <%= link_to "CSV", users_path(format: "csv") %>
 </p>
 
-<%= will_paginate %>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>memberid</th>
-      <th>firstname</th>
-      <th>lastname</th>
-      <th>date</th>
-      <th>month</th>
-      <th>year</th>
-      <th>timeofbirth</th>
-      <th>birthdate</th>
-      <th>moonyear</th>
-      <th>email</th>
-      <th>phone</th>
-      <th>lineid</th>
-    </tr>
-  </thead>
+<%= form_tag(users_path, :method => 'get',id: "search-form")do %>
+<%= select_tag "search_from", options_for_select(["firstname","lastname","date","month","year","birthdate","email","phone","lineid"]) %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
+<%= submit_tag "Search"%>
+<% end%>
 
-<% @users.each do |user| %>
-    <% if !user.admin? %>
-      <%= render user %>
-    <% end %>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>memberid</th>
+        <th>firstname</th>
+        <th>lastname</th>
+        <th>date</th>
+        <th>month</th>
+        <th>year</th>
+        <th>timeofbirth</th>
+        <th>birthdate</th>
+        <th>moonyear</th>
+        <th>email</th>
+        <th>phone</th>
+        <th>lineid</th>
+      </tr>
+    </thead>
+
+<% if @users.present? %>
+  <% @users.each do |user| %>
+      <% if !user.admin? %>
+        <%= render user %>
+      <% end %>
+  <% end %>
+<% else %>
+  <p> There are no users containing the terms <%= params[:search] %> from <%= params[:search_from] %></p>
 <% end %>
+
 </table>
-<%= will_paginate %>

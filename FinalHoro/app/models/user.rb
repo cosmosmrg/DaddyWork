@@ -30,4 +30,26 @@ class User < ApplicationRecord
       end
     end
 
+    def self.search(search,column_name)
+      if column_name == "firstname"
+        where("firstname LIKE ?","%#{search}%")
+      elsif column_name == "lastname"
+        where("lastname LIKE ?","%#{search}%")
+      elsif column_name == "date"
+        where("date LIKE ?","%#{search}%")
+      elsif column_name == "month"
+        where("month LIKE ?","%#{search}%")
+      elsif column_name == "year"
+        where("year LIKE ?","%#{search}%")
+      elsif column_name == "birthdate"
+        where("birthdate LIKE ?","%#{search}%")
+      elsif column_name == "email"
+        where("email LIKE ?","%#{search}%")
+      elsif column_name == "phone"
+        where("phone LIKE ?","%#{search}%")
+      elsif column_name == "lineid"
+        where("lineid LIKE ?","%#{search}%")
+      end
+    end
+
 end
