@@ -20,4 +20,5 @@ User.create!(firstname:  "Sawarin",
              username: "Admin1",
              password:              "thisisadmin",
              password_confirmation: "thisisadmin",
+             memberid: "Admin",
              admin: true)
