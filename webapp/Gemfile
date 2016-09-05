@@ -30,6 +30,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'iconv'
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
+
+gem "recaptcha", require: "recaptcha/rails"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -53,7 +53,10 @@
     <%= f.label :password_confirmation, "Confirm password" %>
     <%= f.password_field :password_confirmation, class: 'form-control'  %>
 
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <%= recaptcha_tags %> 
+
+    <h3> * กรุณากรอกข้อมูลตามความเป็นจริง เพื่อความแม่นยำของการพยากรณ์ และ เพื่อรับสิทธิ์ประโยชน์จากกิจกรรมต่างๆของทาง Final Horoในอนาคต</h3>
+    <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
 
   </div>
