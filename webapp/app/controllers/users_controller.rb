@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if verify_recaptcha(model: @user) && @user.save
-        format.html { redirect_to @user, notice: 'Welcome to FinalHoro!' }
+        format.html { redirect_to @user, notice: 'ยินดีต้อนรับสู่ FinalHoro!' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "ข้อมูลอัพเดทเรียบร้อยแล้ว"
       redirect_to @user
     else
       render 'edit'
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "Userได้ถูกลบแล้ว"
     redirect_to users_url
   end
 

@@ -28,13 +28,13 @@
 
     <%= f.label :เกิดวันใดในสัปดาห์ %>
     <%= f.select :birthdate , ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'] %>
-
+    </br>
     <%= f.label :อายุ%>
     <%= f.select :age , ((0...71).map{|i| [70-i]}) %>
 
     <%= f.label :ปีนักษัตร %>
     <%= f.select :moonyear , ['ชวด','ฉลู','ขาล','เถาะ','มะโรง','มะเส็ง','มะเมีย','มะแม','วอก','ระกา','จอ','กุน']  %>
-
+    </br>
     <%= f.label :เบอร์มือถือ %>
     <%= f.text_field :phone , class: 'form-control'  %>
 
@@ -52,11 +52,12 @@
 
     <%= f.label :password_confirmation, "Confirm password" %>
     <%= f.password_field :password_confirmation, class: 'form-control'  %>
-
-    <%= recaptcha_tags %> 
-
+    </br>
+    <%= recaptcha_tags %>
+    </br>
     <h3> * กรุณากรอกข้อมูลตามความเป็นจริง เพื่อความแม่นยำของการพยากรณ์ และ เพื่อรับสิทธิ์ประโยชน์จากกิจกรรมต่างๆของทาง Final Horoในอนาคต</h3>
-    <%= f.submit "Save changes", class: "btn btn-primary" %>
+    </br>
+    <%= f.submit "ลงทะเบียน", class: "btn btn-primary" %>
     <% end %>
 
   </div>

@@ -1,12 +1,17 @@
 class User < ApplicationRecord
   has_secure_password
-    validates_presence_of :firstname, :lastname, :timeofbirthhour, :timeofbirthmin, :date, :month, :year, :birthdate, :age, :moonyear, :phone, :email, :username, :password
+    validates_presence_of :firstname, :message => " can't be blank (ชื่อไม่สามารถเว้นว่างได้)"
+    validates_presence_of :lastname, :message => " can't be blank (นามสกุลไม่สามารถเว้นว่างได้)"
+    validates_presence_of :phone, :message => " can't be blank (เบอร์โทรศัพท์ไม่สามารถเว้นว่างได้)"
+    validates_presence_of :email, :message => "can't be blank (email ไม่สามารถเว้นว่างได้)"
+    validates_presence_of :username, :message => "can't be blank (username ไม่สามารถเว้นว่างได้)"
+    validates_presence_of :password, :message => "can't be blank (password ไม่สามารถเว้นว่างได้)"
 
-    validates :username, length: {maximum: 50, minimum: 4}, uniqueness: { case_sensitive: false }
+    validates :username, length: {maximum: 50, minimum: 4, message: "ต้องมีความยาวอย่างน้อย 4 ตัวอักษร และไม่มากกว่า50 ตัวอักษร"}, uniqueness: { case_sensitive: false, message: "มีอยุในระบบแล้ว"  }
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-    validates :phone, format: { with: /\d[0-9]\)*\z/, message: "only allows numbers" }, length: {minimum: 10, maximum: 10}
-    validates :email, length: {maximum: 255}, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-    validates :password, length: {minimum: 6}
+    validates :phone, format: { with: /\d[0-9]\)*\z/, message: "สามารถใส่ได้แค่ตัวเลขเท่านั้น" }, length: {minimum: 10, maximum: 10, message: "ต้องมีอยุในรูปแบบ 0xxxxxxxxx และมีความยาวไม่เกิน10 ตัวเลข"}
+    validates :email, length: {maximum: 255, message: "ต้องมีความยาวไม่มากกว่า255 ตัวอักษร"}, format: { with: VALID_EMAIL_REGEX , message: "ไม่สามารถลงทะเบียนได้" }, uniqueness: { case_sensitive: false , message: "มีอยุในระบบแล้ว" }
+    validates :password, length: {minimum: 6 , message: "ต้องมีความยาวอย่างน้อย 6 ตัวอักษร"}
     after_save :memid
 
     def memid
