@@ -16,7 +16,7 @@
     <%= f.text_field :altername1 , class: 'form-control'  %>
     <%= f.text_field :altername2 , class: 'form-control'  %>
     <%= f.text_field :altername3 , class: 'form-control'  %>
-
+    </br>
     <%= f.label :เวลาเกิด %>
     <%= f.select :timeofbirthhour, '01'...'25' %>
     <%= f.select :timeofbirthmin, '00'...'60'  %>
@@ -34,6 +34,7 @@
 
     <%= f.label :ปีนักษัตร %>
     <%= f.select :moonyear , ['ชวด','ฉลู','ขาล','เถาะ','มะโรง','มะเส็ง','มะเมีย','มะแม','วอก','ระกา','จอ','กุน']  %>
+    </br>
     </br>
     <%= f.label :เบอร์มือถือ %>
     <%= f.text_field :phone , class: 'form-control'  %>
@@ -57,8 +58,12 @@
     </br>
     <h3> * กรุณากรอกข้อมูลตามความเป็นจริง เพื่อความแม่นยำของการพยากรณ์ และ เพื่อรับสิทธิ์ประโยชน์จากกิจกรรมต่างๆของทาง Final Horoในอนาคต</h3>
     </br>
+    <h3>ติดต่อ Call Center : 061 519 3941</h3>
     <%= f.submit "ลงทะเบียน", class: "btn btn-primary" %>
     <% end %>
+    </br>
+    </br>
+    </br>
 
   </div>
 </div>
